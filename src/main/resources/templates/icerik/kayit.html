@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/main_layout}">
+<head>
+<title>Register Form</title>
+
+<meta charset="UTF-8">
+</head>
+<body>
+	<div layout:fragment="content" class="container mySpace">
+
+		<br />
+
+		<form th:action="@{/kayit}" th:object="${kullanici}" method="post"
+			class="main-form needs-validation" novalidate>
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<label for="firstname">E-mail</label> <input type="text"
+							th:field="*{email}" id="email" class="form-control">
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-group">
+						<label for="lastname">Ad-Soyad</label> <input type="text"
+							th:field="*{kullaniciAd}" id="name" class="form-control">
+						<small class="form-text text-muted"> </small>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="password">Password</label> <input type="password"
+					th:field="*{password}" id="password" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="gender">Kullanici Türü</label> <select name="tip"
+					id="tip" class="form-control">
+					<option value="user">Normal Uye</option>
+					<option value="admin">Yonetici</option>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary">Üye ol</button>
+		</form>
+	</div>
+
+
+</body>
+</html>

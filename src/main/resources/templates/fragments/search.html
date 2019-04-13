@@ -1,0 +1,40 @@
+<div th:fragment="asd">
+	
+ <form class="form-inline my-2 my-lg-0" action="/filmler">
+      <input class="form-control mr-sm-2" type="text" placeholder="Ara" name="ara">
+       <div class="form-check">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="tur" id="optionsRadios1" value="film" checked="">
+			Film Ara&nbsp;
+        </label>
+      </div>
+      <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="tur" id="optionsRadios2" value="tur">
+			Türe gore ara&nbsp;
+        </label>
+      </div>
+      
+           <button class="btn btn-secondary my-2 my-sm-0" type="submit">Ara</button>
+ 
+    
+    
+    </form>
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+  	<button type="button" class="btn btn-primary">Primary</button>
+ 	 <div class="btn-group" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+      <a class="dropdown-item" href="#">Dropdown link</a>
+      <a class="dropdown-item" href="#">Dropdown link</a>
+    </div>
+  	</div>
+	</div>
+    
+<form class="form-inline my-2 my-lg-0" action="/oyuncular">
+      <input class="form-control mr-sm-2" type="text" placeholder="Oyuncu ara" name="arama">
+  
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">bul</button>
+    </form>
+    </div>
+	

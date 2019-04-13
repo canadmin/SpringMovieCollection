@@ -1,0 +1,33 @@
+<header th:fragment="header">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+  <a class="navbar-brand" href="/">Ana Sayfa</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/filmler">Filmler</a>
+      </li>
+      <li class="nav-item" >
+        <a class="nav-link" href="/addfilm" sec:authorize="isAuthenticated()">Film ekle</a>
+      </li>
+      <li class="nav-item" sec:authorize="!isAuthenticated()">
+        <a class="nav-link" href="/kayit" >Kayit ol</a>
+      </li>
+      
+       <li class="nav-item" sec:authorize="!isAuthenticated()">
+        <a class="nav-link" href="/login" >Giris Yap</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post"  sec:authorize="isAuthenticated()">
+      <input class="form-control mr-sm-2" type="hidden">
+      <button class="btn btn-outline-warning" type="submit">Cikis Yap</button>
+    </form>
+  </div>
+</nav>
+
+</header>
+

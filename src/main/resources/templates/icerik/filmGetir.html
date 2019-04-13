@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/main_layout}">
+<meta charset="UTF-8">
+<head>
+<title>Film</title>
+<body>
+
+	<div layout:fragment="content" class="container">
+		<br>
+
+		<div class="jumbotron">
+			<center>
+				<img
+					th:src="${image} == null ? _ : @{'data:image/png;base64,'+${image}}"
+					width="300" height="300">
+			</center>
+
+			<br />
+			<center>
+				<p align="center">
+				<h4>
+					<span th:text="${film.filmAd}"></span>
+				</h4>
+				</p>
+			</center>
+			<hr />
+			<p align="center">
+			<h4>
+				Yayinlandığı Tarih: &nbsp; <span th:text="${film.yayinYili}"></span>
+			</h4>
+			</p>
+			<p align="center">
+			<h4>
+				Tür: &nbsp; <span th:text="${film.filmTuru}"></span>
+			</h4>
+			</p>
+			<p align="center">
+			<h4>
+				Film hakkında: &nbsp; <span th:text="${film.filmAciklama}"></span>
+			</h4>
+			</p>
+			<p align="center">
+			<h4>
+				Dil Seçenekleri: &nbsp; <span th:text="${film.filmDilSecenekleri}"></span>
+			</h4>
+			</p>
+
+			<center>Oyuncular</center>
+			<hr />
+
+			<ul th:each="oyuncu : ${oyuncu}">
+				<li th:text="${oyuncu.oyuncuAdi}">
+			</ul>
+
+
+			<hr />
+			<center>
+				<a th:href="@{/filmguncelle(id=${film.filmId})}"
+					class="btn btn-outline-danger"
+					sec:authorize="hasAuthority('R_ADMIN')">Güncelleme</a> &nbsp;&nbsp;
+				<a th:href="@{'/filmSil/'+${film.filmId}}"
+					class="btn btn-outline-success"
+					sec:authorize="hasAuthority('R_ADMIN')">Sil</a>
+			</center>
+
+
+
+		</div>
+	</div>
+
+
+</body>
+
+</html>

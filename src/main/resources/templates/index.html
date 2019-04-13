@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/main_layout}"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<meta charset="UTF-8">
+
+<head>
+</head>
+<body>
+	<div th:replace="fragments/header :: header">
+		<div layout:fragment="content" class="container">
+			<br>
+
+			<div class="jumbotron">
+				<h1 class="display-3">FİLM ARŞİVİ</h1>
+				<p class="lead">Staj film arşivi proje.</p>
+				<hr class="my-4">
+				<p>film eklemek icin normal üye olmanız yeterlidir,ama
+					ekleme-güncelleme-silme işlemleri için admin olmanız gereklidir.</p>
+				<p>Oyuncuları güncellemek ya da silmek için filmin açıklama
+					sayfasına gitmeniz gerekiyor</p>
+				<p>Örneğin 3 adet oyuncu eklemek istiyorum ve birisinin rolünü
+					tanımlamak istemiyorum:</p>
+				<p>Oyuncu ad : Rol,</p>
+				<p>Oyuncu ad,</p>
+				<p>Oyuncu ad : Rol</p>
+				<p>Şeklinde olmalıdır. Hiç hoş durmuyor biliyorum ama sanırım
+					sorunu algoritma ile çözmek tasarım ile çözmeye daha göre daha
+					keyif verici geldi.</p>
+				<p class="lead"></p>
+			</div>
+			<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>

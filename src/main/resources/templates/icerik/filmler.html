@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/main_layout}">
+<meta charset="UTF-8">
+
+<title>Filmler</title>
+
+<meta charset="utf-8">
+<head>
+
+</head>
+<body>
+
+
+	<div layout:fragment="content" class="container">
+		<br>
+
+
+		<div class="jumbotron">
+
+
+
+			<center>
+				<h3>Filmler</h3>
+			</center>
+			<hr />
+
+
+			<form class="form-inline my-2 my-lg-0" action="/filmler">
+				<input class="form-control mr-sm-2" type="text" placeholder="Ara"
+					name="ara">
+				<div class="form-check">
+					<label class="form-check-label"> <input type="radio"
+						class="form-check-input" name="tur" id="optionsRadios1"
+						value="film" checked=""> Film Ara&nbsp;
+					</label>
+				</div>
+				<div class="form-check">
+					<label class="form-check-label"> <input type="radio"
+						class="form-check-input" name="tur" id="optionsRadios2"
+						value="tur"> Türe gore ara&nbsp;
+					</label>
+				</div>
+
+				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Ara</button>
+
+
+				&nbsp; &nbsp; &nbsp; &nbsp;
+				<div class="dropdown" align="center">
+					<button class="dropbtn">Yıla göre sırala</button>
+					<div class="dropdown-content">
+						<a href="#"></a> <a href="/artan">Artan</a> <a href="/azalan">Azalan</a>
+					</div>
+			</form>
+
+
+		</div>
+		<form class="form-inline my-2 my-lg-0" action="/oyuncular">
+			<input class="form-control mr-sm-2" type="text"
+				placeholder="Oyuncu ara" name="arama">
+
+			<button class="btn btn-secondary my-2 my-sm-0" type="submit">bul</button>
+		</form>
+
+
+		<br /> <br /> <br />
+		<div class="py-1">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="table-responsive">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Film Adi</th>
+										<th scope="col">Tür</th>
+										<th scope="col">Dil Seçenekleri</th>
+										<th scope="col"></th>
+									</tr>
+								</thead>
+								<tbody th:each="filmler:${filmler}">
+									<tr class="table-light">
+										<td th:text="${filmler.filmId}"></td>
+										<td><a th:href="@{/filmGetir(id=${filmler.filmId})}"><span
+												th:text="${filmler.filmAd}"></span>(<span
+												th:text="${filmler.yayinYili}"> </span>) </a></td>
+										<td th:text="${filmler.filmTuru}"></td>
+										<td th:text="${filmler.filmDilSecenekleri}"></td>
+										<td><a th:href="@{'/filmSil/'+${filmler.filmId}}"
+											class="btn btn-outline-danger"
+											sec:authorize="hasAuthority('R_ADMIN')">Sil</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

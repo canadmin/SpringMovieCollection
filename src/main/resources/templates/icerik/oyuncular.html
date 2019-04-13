@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/main_layout}">
+<meta charset="UTF-8">
+
+<head>
+<title>Oyuncular</title>
+
+
+<meta charset="utf-8">
+</head>
+<body>
+<body>
+	<div layout:fragment="content" class="container">
+		<br>
+
+		<div class="jumbotron">
+
+			<center>
+				<h3>Oyuncular</h3>
+			</center>
+			<hr />
+			<form class="form-inline my-2 my-lg-0" action="/filmler">
+				<input class="form-control mr-sm-2" type="text" placeholder="Ara"
+					name="ara">
+				<div class="form-check">
+					<label class="form-check-label"> <input type="radio"
+						class="form-check-input" name="tur" id="optionsRadios1"
+						value="film" checked=""> Film Ara&nbsp;
+					</label>
+				</div>
+				<div class="form-check">
+					<label class="form-check-label"> <input type="radio"
+						class="form-check-input" name="tur" id="optionsRadios2"
+						value="tur"> Türe gore ara&nbsp;
+					</label>
+				</div>
+
+				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Ara</button>
+
+			</form>
+
+			<form class="form-inline my-2 my-lg-0" action="/oyuncular">
+				<input class="form-control mr-sm-2" type="text"
+					placeholder="Oyuncu ara" name="arama">
+
+				<button class="btn btn-secondary my-2 my-sm-0" type="submit">bul</button>
+			</form>
+
+			<br /> <br /> <br />
+			<div class="py-1">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th scope="col">#</th>
+											<th scope="col">Oyuncu Ad</th>
+											<th scope="col">Oyuncu rol</th>
+										</tr>
+									</thead>
+									<tbody th:each="oyuncular:${oyuncular}">
+										<tr class="table-light">
+											<td th:text="${oyuncular.oyuncuId}"></td>
+											<td th:text="${oyuncular.oyuncuAd}"></td>
+											<td th:text="${oyuncular.oyuncuRol}"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>
