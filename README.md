@@ -1,4 +1,4 @@
-# Maven(Spring(Boot,Security,Data)+JPA+thymeleaf+h2_console)
+# Özgür yazılım staj projesi
 
 
 # Spring boot Film Arşivi Projesi
